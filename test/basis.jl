@@ -3,7 +3,7 @@
 	m = 2
 	n = 2
 
-	@test SUNIrrepProjectors.all_fock_states(m, n) |> collect == Any[
+	@test all_fock_states(m, n) |> collect == Any[
 		[2, 0], [1, 1], [0, 2],
 	]
 

@@ -21,7 +21,7 @@ toarray(P) = (P + transpose(P) - Diagonal(P)) |> Array
 	@testset "trace of projector should equal their dimension" begin
 		for _n in 1:2
 			for k in 0:_n
-				@test Π[[m, _n, k]] |> toarray |> tr ≈ SUNIrrepProjectors.d_λ(m, k) atol = 10e-8
+				@test Π[[m, _n, k]] |> toarray |> tr ≈ d_λ(m, k) atol = 10e-8
 			end
 		end
 	end

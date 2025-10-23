@@ -9,4 +9,6 @@ include("../src/DensityMatrix.jl")
 @testset "LOShadows.jl" begin
     include("./densitymatrix.jl")
     include("./matrixoperations.jl")
+    include("./basis.jl")
+	include("./projectors.jl")
 end

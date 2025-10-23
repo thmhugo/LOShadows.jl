@@ -1,7 +1,7 @@
 export Eij, Ozj, Oxjk, Oyjk
 
 
-@memoize all_fock_states(m::Int, n::Int) = multiexponents(m, n)
+# @memoize all_fock_states(m::Int, n::Int) = multiexponents(m, n)
 
 function fock_idx(m, n)
     return Dict(s => i for (i, s) in all_fock_states(m, n) |> enumerate)

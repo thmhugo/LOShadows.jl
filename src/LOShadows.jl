@@ -4,9 +4,15 @@ using ArgCheck
 using Combinatorics
 using LinearAlgebra
 using Memoization
+using SUNRepresentations
+using Serialization
+using Combinatorics
+using Base.Threads
+using SparseArrays
 
 include("MatrixOperations.jl")
 include("DensityMatrix.jl")
+include("SUNIrrepProjectors.jl")
 
 include("applications/FockOperators.jl")
 

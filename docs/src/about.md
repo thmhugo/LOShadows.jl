@@ -1,9 +1,6 @@
 # About
 
-This project implements the classical shadow protocol as defined in [cite] for
-linear optics in Julia.
-
-
-## Related packages
-
-The packages relies on the [SUNIrrepProjectors.jl](https://github.com/thmhugo/SUNIrrepProjectors.jl) package for the computation of the measurement channel.
+This project implements the classical shadow protocol for linear optics  as
+defined in [Thomas, H., Chabaud, U., & Emeriau, P. E. (2025). Shedding light on
+classical shadows: learning photonic quantum
+states.](https://doi.org/10.48550/arXiv.2510.07240).

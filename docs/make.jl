@@ -1,4 +1,4 @@
-using Documenter, LOShadows 
+using Documenter, LOShadows, SparseArrays
 
 push!(LOAD_PATH, "../src/")
 
@@ -9,6 +9,10 @@ makedocs(
 	format = Documenter.HTML(prettyurls = true),
 	pages = [
 		"About" => "about.md",
+		"Usage" => [
+			"usage/projectors.md",
+			"usage/shadows.md"
+		],
 		"API" => [
 			"types" => [
 				"types/DensityMatrix.md"

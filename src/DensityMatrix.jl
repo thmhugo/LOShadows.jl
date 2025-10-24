@@ -45,9 +45,7 @@ struct DensityMatrix
 		# @argcheck tr(ρ) ≈ 1 "ρ is not normalised"
 		spectrum = eigvals(ρ)
 		# @argcheck all((real.(spectrum) .>= 0) .|| isapprox.(real.(spectrum), 0.0; atol = 1e-10)) && all(isapprox.(imag.(spectrum), 0.0; atol = 1e-10)) "ρ is not positive semi-definite"
-
-		# @argcheck ishermitian(ρ) "ρ is not self-adjoint"
-		# 
+		# @argcheck ishermitian(ρ) "ρ is not self-adjoint" 
 		return new(m, n, d, ρ)
 	end
 
@@ -156,7 +154,6 @@ Base.:*(A::DensityMatrixBlock, x::Int64) = DensityMatrixBlock(A.m, A.n, A.ρ * x
 Base.:*(A::DensityMatrixBlock, x::Float64) = DensityMatrixBlock(A.m, A.n, A.ρ * x)
 Base.:/(A::DensityMatrix, x::Int64) = A * (1 / x)
 Base.:/(A::DensityMatrix, x::Float64) = A * (1 / x)
-Base.:/(A::DensityMatrix, x::Int64) = A * (1 / x)
 Base.:/(A::DensityMatrixBlock, x::Int64) = A * (1 / x)
 LinearAlgebra.tr(A::DensityMatrix) = tr(A.ρ)
 LinearAlgebra.tr(A::DensityMatrixBlock) = tr(A.ρ)

@@ -26,6 +26,16 @@ function direct_sum(M::Vector{Matrix{T}} where T <: Number)
 
 end
 
-function sparse_sym_mvp(A, x)
-    return A * x + transpose(transpose(x) * A) - Diagonal(A) * x
+"""
+	sparse_sym_mvp(A::SparseMatrixCSC{Float64, Int64}, x::Vector{<:Number})
+
+Implementation of the sparse-matrix vector product ``Ax`` when ``A`` is
+symmetric and given via its upper-triangular form.
+"""
+function sparse_sym_mvp(A::SparseMatrixCSC{Float64, Int64}, x::Vector{<:Number})
+	return A * x + transpose(transpose(x) * A) - Diagonal(A) * x
+end
+
+function sparse_sym_mvp(A::SparseMatrixCSC{Float64, Int64}, ρ::DensityVectorBlock)
+    return sparse_sym_mvp(A, ρ.ρ) 
 end

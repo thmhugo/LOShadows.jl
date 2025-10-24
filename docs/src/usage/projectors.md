@@ -18,32 +18,32 @@ Start by enabling debugging messages with
 ```julia-repl
 julia> Π = projection_matrices(3,2)
  Debug: Infer Last one
-└ @ Main.SUNIrrepProjectors .../SUNIrrepProjectors.jl:292
+└ @ Main.Channels .../Channels.jl:292
 ┌ Debug: m=3 n=0 computed projectors 
-└ @ Main.SUNIrrepProjectors .../SUNIrrepProjectors.jl:300
+└ @ Main.Channels .../Channels.jl:300
 ┌ Debug: m3-n0 saved at
 │   path = "./projectors/P-m3-n0"
-└ @ Main.SUNIrrepProjectors .../SUNIrrepProjectors.jl:308
+└ @ Main.Channels .../Channels.jl:308
 ┌ Debug: Compute GC m = 3, n = 1, k = 0
-└ @ Main.SUNIrrepProjectors .../SUNIrrepProjectors.jl:75
+└ @ Main.Channels .../Channels.jl:75
 ┌ Debug: Infer Last one
-└ @ Main.SUNIrrepProjectors .../SUNIrrepProjectors.jl:292
+└ @ Main.Channels .../Channels.jl:292
 ┌ Debug: m=3 n=1 computed projectors 
-└ @ Main.SUNIrrepProjectors .../SUNIrrepProjectors.jl:300
+└ @ Main.Channels .../Channels.jl:300
 ┌ Debug: m3-n1 saved at
 │   path = "./projectors/P-m3-n1"
-└ @ Main.SUNIrrepProjectors .../SUNIrrepProjectors.jl:308
+└ @ Main.Channels .../Channels.jl:308
 ┌ Debug: Compute GC m = 3, n = 2, k = 0
-└ @ Main.SUNIrrepProjectors .../SUNIrrepProjectors.jl:75
+└ @ Main.Channels .../Channels.jl:75
 ┌ Debug: Compute GC m = 3, n = 2, k = 1
-└ @ Main.SUNIrrepProjectors .../SUNIrrepProjectors.jl:75
+└ @ Main.Channels .../Channels.jl:75
 ┌ Debug: Infer Last one
-└ @ Main.SUNIrrepProjectors .../SUNIrrepProjectors.jl:292
+└ @ Main.Channels .../Channels.jl:292
 ┌ Debug: m=3 n=2 computed projectors 
-└ @ Main.SUNIrrepProjectors .../SUNIrrepProjectors.jl:300
+└ @ Main.Channels .../Channels.jl:300
 ┌ Debug: m3-n2 saved at
 │   path = "./projectors/P-m3-n2"
-└ @ Main.SUNIrrepProjectors .../SUNIrrepProjectors.jl:308
+└ @ Main.Channels .../Channels.jl:308
 Dict{Any, Any} with 6 entries:
   [3, 2, 1] => sparse([1, 2, 3, 7, 1, 8, 9, 2, 10, 3  …  33, 14, 28, 35, 1, 8, 15, 22, 29, 36], [1, 2, 3, 7, 8, 8, 9…
   [3, 1, 1] => sparse([1, 2, 3, 4, 1, 5, 6, 7, 8, 1, 5, 9], [1, 2, 3, 4, 5, 5, 6, 7, 8, 9, 9, 9], [0.666667, 1.0, 1.…
@@ -65,30 +65,30 @@ so that another call with now 3 photons displays
 ```julia-repl
 julia> Π = projection_matrices(3, 3)
 ┌ Debug: m=3 n=0 loaded from memory 
-└ @ Main.SUNIrrepProjectors .../SUNIrrepProjectors.jl:281
+└ @ Main.Channels .../Channels.jl:281
 ┌ Debug: m=3 n=1 loaded from memory 
-└ @ Main.SUNIrrepProjectors .../SUNIrrepProjectors.jl:281
+└ @ Main.Channels .../Channels.jl:281
 ┌ Debug: m=3 n=2 loaded from memory 
-└ @ Main.SUNIrrepProjectors .../SUNIrrepProjectors.jl:281
+└ @ Main.Channels .../Channels.jl:281
 ┌ Debug: Compute GC m = 3, n = 3, k = 0
-└ @ Main.SUNIrrepProjectors .../SUNIrrepProjectors.jl:75
+└ @ Main.Channels .../Channels.jl:75
 ┌ Debug: loaded CGC from disk: Irrep[SU₃]("10⁺") ⊗ Irrep[SU₃]("10") → Irrep[SU₃]("1")
 └ @ SUNRepresentations .../caching.jl:23
 ┌ Debug: Compute GC m = 3, n = 3, k = 1
-└ @ Main.SUNIrrepProjectors .../SUNIrrepProjectors.jl:75
+└ @ Main.Channels .../Channels.jl:75
 ┌ Debug: loaded CGC from disk: Irrep[SU₃]("10⁺") ⊗ Irrep[SU₃]("10") → Irrep[SU₃]("8")
 └ @ SUNRepresentations .../caching.jl:23
 ┌ Debug: Compute GC m = 3, n = 3, k = 2
-└ @ Main.SUNIrrepProjectors .../SUNIrrepProjectors.jl:75
+└ @ Main.Channels .../Channels.jl:75
 ┌ Debug: loaded CGC from disk: Irrep[SU₃]("10⁺") ⊗ Irrep[SU₃]("10") → Irrep[SU₃]("27")
 └ @ SUNRepresentations .../caching.jl:23
 ┌ Debug: Infer Last one
-└ @ Main.SUNIrrepProjectors .../SUNIrrepProjectors.jl:292
+└ @ Main.Channels .../Channels.jl:292
 ┌ Debug: m=3 n=3 computed projectors 
-└ @ Main.SUNIrrepProjectors .../SUNIrrepProjectors.jl:300
+└ @ Main.Channels .../Channels.jl:300
 ┌ Debug: m3-n3 saved at
 │   path = "./projectors/P-m3-n3"
-└ @ Main.SUNIrrepProjectors .../SUNIrrepProjectors.jl:308
+└ @ Main.Channels .../Channels.jl:308
 Dict{Any, Any} with 10 entries:
   [3, 2, 1] => sparse([1, 2, 3, 7, 1, 8, 9, 2, 10, 3  …  33, 14, 28, 35, 1, 8, 15, 22, 29, 36], [1, 2, 3, 7, 8, 8, 9…
   [3, 1, 1] => sparse([1, 2, 3, 4, 1, 5, 6, 7, 8, 1, 5, 9], [1, 2, 3, 4, 5, 5, 6, 7, 8, 9, 9, 9], [0.666667, 1.0, 1.…

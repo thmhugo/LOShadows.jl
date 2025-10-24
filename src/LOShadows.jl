@@ -10,11 +10,13 @@ using Combinatorics
 using Base.Threads
 using SparseArrays
 
-include("MatrixOperations.jl")
 include("DensityMatrix.jl")
-include("SUNIrrepProjectors.jl")
+include("MatrixOperations.jl")
+include("Channels.jl")
 
 include("applications/FockOperators.jl")
+include("applications/Invariants.jl")
+include("applications/Binning.jl")
 
 for n in names(@__MODULE__; all = true)
 	if Base.isidentifier(n) && n ∉ (Symbol(@__MODULE__), :eval, :include)

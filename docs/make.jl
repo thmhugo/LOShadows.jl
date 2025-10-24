@@ -18,6 +18,7 @@ makedocs(
 				"types/DensityMatrix.md"
 			],
 			"functions" => [
+				"functions/Channels.md",
 				"functions/FockOperators.md",
 				"functions/MatrixOperations.md",
 			]

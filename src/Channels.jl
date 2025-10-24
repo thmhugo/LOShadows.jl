@@ -3,6 +3,8 @@
 τ(n::Int, m::Int) = SUNIrrep(Tuple([[n]; zeros(Int, m - 1)]))
 λ(k::Int, m::Int) = SUNIrrep(Tuple([[2 * k]; fill(k, m - 2); [0]]))
 d_λ(m::Int, k::Int) = binomial(k + m - 2, k)^2 * (2k + m - 1) / (m - 1)
+s_λ(m, k) = 1 / (1 + k / (k + m - 1)) / binomial(k + m - 1, m - 1)
+s_λ_inv(m, k) = 1 / s_λ(m, k)
 
 struct FockState
 	n::Int
@@ -314,12 +316,71 @@ function projection_matrices(m::Int, n::Int; load_from_memory = true, save_in_me
 	return Π
 end
 
-"""
-	sparse_sym_mvp(A::SparseMatrixCSC{Float64, Int64}, x::Vector{<:Number})
 
-Implementation of the sparse-matrix vector product ``Ax`` when ``A`` is
-symmetric and given via its upper-triangular form.
-"""
-function sparse_sym_mvp(A::SparseMatrixCSC{Float64, Int64}, x::Vector{<:Number})
-	return A * x + transpose(transpose(x) * A) - Diagonal(A) * x
+function compute_channels(m::Int, n::Int, directory, combiner; load_from_memory = true, infer_last::Bool = true)
+    """
+    Compute channel matrices for m and all i≤n.
+
+
+    Serialize computed matrix.
+
+    Deserialize data on disk when found.
+    """
+    Π = Vector()
+
+
+    for i in 0:n
+        path = "./projectors/$(directory)-m$(m)-n$(i)"
+        if isfile(path)
+            @info "m$(m)-n$(i) loaded from memory !"
+            push!(Π, deserialize(path))
+        else
+            P = projection_matrices(m, i)
+            P = Dict{Vector{Int64}, SparseMatrixCSC{Float32, Int64}}([m, i, k] => P[[m, i, k]] for k in 0:i)
+            P = combiner(P, m, i)
+            @info ("m=$(m) n=n$(i) Computed projectors ")
+            serialize(path, P)
+            @info "m$(m)-n$(i) saved !"
+            push!(Π, P)
+        end
+    end
+
+    return Π
+end
+
+function combine_projectors_to_channel(Π::Dict{Vector{Int64}, SparseMatrixCSC{Float32, Int64}}, m::Int, n::Int, sλ)
+    d = binomial(m + n - 1, n)^2 |> Int
+    Π2 = spzeros(Float32, (d, d))
+
+    for (key, P) in Π
+        m, n, k = key
+        try
+            Π2 += sλ(m, k) * P
+        catch e
+            Π2 = sλ(m, k) * P
+        end
+    end
+
+    return Π2
+end
+
+function combine_projector_inv_channel(Π::Dict{Vector{Int64},SparseMatrixCSC{Float32,Int64}}, m::Int, n::Int)
+    return combine_projectors_to_channel(Π, m, n, s_λ_inv)
+end
+
+
+function combine_projector_channel(Π::Dict{Vector{Int64},SparseMatrixCSC{Float32,Int64}}, m::Int, n::Int)
+    return combine_projectors_to_channel(Π, m, n, s_λ)
+end
+
+
+
+function inverse_channels(m::Int, n::Int)
+	#TODO: fails if "projectors/inverse-channels" does not exist
+    return compute_channels(m, n, "inverse-channels/iC", combine_projector_inv_channel)
+end
+
+function channels(m::Int, n::Int)
+	#TODO: fails if "projectors/channels" does not exist
+    return compute_channels(m, n, "channels/C", combine_projector_channel)
 end

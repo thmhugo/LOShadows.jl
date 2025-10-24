@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Computing projectors onto irreps of omega_m^n · LOShadows.jl</title><meta name="title" content="Computing projectors onto irreps of omega_m^n · LOShadows.jl"/><meta property="og:title" content="Computing projectors onto irreps of omega_m^n · LOShadows.jl"/><meta property="twitter:title" content="Computing projectors onto irreps of omega_m^n · LOShadows.jl"/><meta name="description" content="Documentation for LOShadows.jl."/><meta property="og:description" content="Documentation for LOShadows.jl."/><meta property="twitter:description" content="Documentation for LOShadows.jl."/><script data-outdated-warner src="../../assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.050/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="../.."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../../assets/documenter.js"></script><script src="../../search_index.js"></script><script src="../../siteinfo.js"></script><script src="../../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/catppuccin-mocha.css" data-theme-name="catppuccin-mocha"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/catppuccin-macchiato.css" data-theme-name="catppuccin-macchiato"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/catppuccin-frappe.css" data-theme-name="catppuccin-frappe"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/catppuccin-latte.css" data-theme-name="catppuccin-latte"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../../assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit"><a href>LOShadows.jl</a></span></div><button class="docs-search-query input is-rounded is-small is-clickable my-2 mx-auto py-1 px-2" id="documenter-search-query">Search docs (Ctrl + /)</button><ul class="docs-menu"><li><span class="tocitem">Usage</span><ul><li class="is-active"><a class="tocitem" href>Computing projectors onto irreps of <span>$\omega_m^n$</span></a><ul class="internal"><li><a class="tocitem" href="#Compute-projectors"><span>Compute projectors</span></a></li><li><a class="tocitem" href="#Usage-of-the-projectors"><span>Usage of the projectors</span></a></li></ul></li><li><a class="tocitem" href="../shadows/">Classical shadows</a></li></ul></li><li><span class="tocitem">API</span><ul><li><input class="collapse-toggle" id="menuitem-2-1" type="checkbox"/><label class="tocitem" for="menuitem-2-1"><span class="docs-label">functions</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../../functions/Channels/">SU(m) irreps projectors</a></li><li><a class="tocitem" href="../../functions/FockOperators/">FockOperators</a></li><li><a class="tocitem" href="../../functions/MatrixOperations/">MatrixOperations</a></li></ul></li><li><input class="collapse-toggle" id="menuitem-2-2" type="checkbox"/><label class="tocitem" for="menuitem-2-2"><span class="docs-label">applications</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../../applications/Binning/">Binned probabilities</a></li><li><a class="tocitem" href="../../applications/Invariants/">Linear Optical Lie-algebraic invariants</a></li></ul></li><li><input class="collapse-toggle" id="menuitem-2-3" type="checkbox"/><label class="tocitem" for="menuitem-2-3"><span class="docs-label">types</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../../types/DensityMatrix/">DensityMatrix</a></li></ul></li></ul></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><a class="docs-sidebar-button docs-navbar-link fa-solid fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a><nav class="breadcrumb"><ul class="is-hidden-mobile"><li><a class="is-disabled">Usage</a></li><li class="is-active"><a href>Computing projectors onto irreps of <span>$\omega_m^n$</span></a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Computing projectors onto irreps of <span>$\omega_m^n$</span></a></li></ul></nav><div class="docs-right"><a class="docs-settings-button docs-navbar-link fa-solid fa-gear" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-article-toggle-button fa-solid fa-chevron-up" id="documenter-article-toggle-button" href="javascript:;" title="Collapse all docstrings"></a></div></header><article class="content" id="documenter-page"><h1 id="Computing-projectors-onto-irreps-of-\\omega_mn"><a class="docs-heading-anchor" href="#Computing-projectors-onto-irreps-of-\\omega_mn">Computing projectors onto irreps of <span>$\omega_m^n$</span></a><a id="Computing-projectors-onto-irreps-of-\\omega_mn-1"></a><a class="docs-heading-anchor-permalink" href="#Computing-projectors-onto-irreps-of-\\omega_mn" title="Permalink"></a></h1><h2 id="Compute-projectors"><a class="docs-heading-anchor" href="#Compute-projectors">Compute projectors</a><a id="Compute-projectors-1"></a><a class="docs-heading-anchor-permalink" href="#Compute-projectors" title="Permalink"></a></h2><p>Use <code>projection_matrices</code> to compute the projection matrices. It will store them in memory at the end and fetch those you already computed. It will create a directory <code>projectors/</code> to store projectors locally.</p><pre><code class="language-julia hljs">Π = projection_matrices(m, n)</code></pre><p>It will compute all projectors for <span>$m$</span> modes and <strong>up to</strong> <span>$n$</span> photons. Π is a hashmap <code>[m, n, k] =&gt; SparseMatrixCSC{Float32, Int64}</code>. For instance for 3 modes and 2 photons:</p><p>Start by enabling debugging messages with <code>using Logging; global_logger(ConsoleLogger(stdout,Logging.Debug))</code>.</p><pre><code class="language-julia-repl hljs">julia&gt; Π = projection_matrices(3,2)
+ Debug: Infer Last one
+└ @ Main.Channels .../Channels.jl:292
+┌ Debug: m=3 n=0 computed projectors 
+└ @ Main.Channels .../Channels.jl:300
+┌ Debug: m3-n0 saved at
+│   path = &quot;./projectors/P-m3-n0&quot;
+└ @ Main.Channels .../Channels.jl:308
+┌ Debug: Compute GC m = 3, n = 1, k = 0
+└ @ Main.Channels .../Channels.jl:75
+┌ Debug: Infer Last one
+└ @ Main.Channels .../Channels.jl:292
+┌ Debug: m=3 n=1 computed projectors 
+└ @ Main.Channels .../Channels.jl:300
+┌ Debug: m3-n1 saved at
+│   path = &quot;./projectors/P-m3-n1&quot;
+└ @ Main.Channels .../Channels.jl:308
+┌ Debug: Compute GC m = 3, n = 2, k = 0
+└ @ Main.Channels .../Channels.jl:75
+┌ Debug: Compute GC m = 3, n = 2, k = 1
+└ @ Main.Channels .../Channels.jl:75
+┌ Debug: Infer Last one
+└ @ Main.Channels .../Channels.jl:292
+┌ Debug: m=3 n=2 computed projectors 
+└ @ Main.Channels .../Channels.jl:300
+┌ Debug: m3-n2 saved at
+│   path = &quot;./projectors/P-m3-n2&quot;
+└ @ Main.Channels .../Channels.jl:308
+Dict{Any, Any} with 6 entries:
+  [3, 2, 1] =&gt; sparse([1, 2, 3, 7, 1, 8, 9, 2, 10, 3  …  33, 14, 28, 35, 1, 8, 15, 22, 29, 36], [1, 2, 3, 7, 8, 8, 9…
+  [3, 1, 1] =&gt; sparse([1, 2, 3, 4, 1, 5, 6, 7, 8, 1, 5, 9], [1, 2, 3, 4, 5, 5, 6, 7, 8, 9, 9, 9], [0.666667, 1.0, 1.…
+  [3, 2, 0] =&gt; sparse([1, 1, 8, 1, 8, 15, 1, 8, 15, 22  …  8, 15, 22, 29, 1, 8, 15, 22, 29, 36], [1, 8, 8, 15, 15, 1…
+  [3, 1, 0] =&gt; sparse([1, 1, 5, 1, 5, 9], [1, 5, 5, 9, 9, 9], Float32[0.333333, 0.333333, 0.333333, 0.333333, 0.3333…
+  [3, 2, 2] =&gt; sparse([1, 2, 3, 4, 5, 6, 7, 1, 8, 9  …  34, 14, 28, 35, 1, 8, 15, 22, 29, 36], [1, 2, 3, 4, 5, 6, 7,…
+  [3, 0, 0] =&gt; sparse([1], [1], [1.0], 1, 1)</code></pre><p>All the projectors for less that <span>$2$</span> photons in <span>$3$</span> modes are computed, and for each of them, <span>$k$</span> ranges from <span>$0$</span> to <span>$n$</span>. The projectors to the <span>$k$</span>-th irrep of the <span>$n$</span>-photon state is accessed via <code>Π[[m, n, k]]</code> (notice that the hashmap&#39;s key is a <strong>list</strong>). The storage format is detailed below.</p><p>If <code>save_in_memory</code> is set to <code>true</code>, the function call will create the files:</p><ul><li>projectors/P-m3-n0</li><li>projectors/P-m3-n1</li><li>projectors/P-m3-n2</li></ul><p>so that another call with now 3 photons displays</p><pre><code class="language-julia-repl hljs">julia&gt; Π = projection_matrices(3, 3)
+┌ Debug: m=3 n=0 loaded from memory 
+└ @ Main.Channels .../Channels.jl:281
+┌ Debug: m=3 n=1 loaded from memory 
+└ @ Main.Channels .../Channels.jl:281
+┌ Debug: m=3 n=2 loaded from memory 
+└ @ Main.Channels .../Channels.jl:281
+┌ Debug: Compute GC m = 3, n = 3, k = 0
+└ @ Main.Channels .../Channels.jl:75
+┌ Debug: loaded CGC from disk: Irrep[SU₃](&quot;10⁺&quot;) ⊗ Irrep[SU₃](&quot;10&quot;) → Irrep[SU₃](&quot;1&quot;)
+└ @ SUNRepresentations .../caching.jl:23
+┌ Debug: Compute GC m = 3, n = 3, k = 1
+└ @ Main.Channels .../Channels.jl:75
+┌ Debug: loaded CGC from disk: Irrep[SU₃](&quot;10⁺&quot;) ⊗ Irrep[SU₃](&quot;10&quot;) → Irrep[SU₃](&quot;8&quot;)
+└ @ SUNRepresentations .../caching.jl:23
+┌ Debug: Compute GC m = 3, n = 3, k = 2
+└ @ Main.Channels .../Channels.jl:75
+┌ Debug: loaded CGC from disk: Irrep[SU₃](&quot;10⁺&quot;) ⊗ Irrep[SU₃](&quot;10&quot;) → Irrep[SU₃](&quot;27&quot;)
+└ @ SUNRepresentations .../caching.jl:23
+┌ Debug: Infer Last one
+└ @ Main.Channels .../Channels.jl:292
+┌ Debug: m=3 n=3 computed projectors 
+└ @ Main.Channels .../Channels.jl:300
+┌ Debug: m3-n3 saved at
+│   path = &quot;./projectors/P-m3-n3&quot;
+└ @ Main.Channels .../Channels.jl:308
+Dict{Any, Any} with 10 entries:
+  [3, 2, 1] =&gt; sparse([1, 2, 3, 7, 1, 8, 9, 2, 10, 3  …  33, 14, 28, 35, 1, 8, 15, 22, 29, 36], [1, 2, 3, 7, 8, 8, 9…
+  [3, 1, 1] =&gt; sparse([1, 2, 3, 4, 1, 5, 6, 7, 8, 1, 5, 9], [1, 2, 3, 4, 5, 5, 6, 7, 8, 9, 9, 9], [0.666667, 1.0, 1.…
+  [3, 2, 0] =&gt; sparse([1, 1, 8, 1, 8, 15, 1, 8, 15, 22  …  8, 15, 22, 29, 1, 8, 15, 22, 29, 36], [1, 8, 8, 15, 15, 1…
+  [3, 1, 0] =&gt; sparse([1, 1, 5, 1, 5, 9], [1, 5, 5, 9, 9, 9], Float32[0.333333, 0.333333, 0.333333, 0.333333, 0.3333…
+  [3, 3, 3] =&gt; sparse([1, 2, 3, 4, 5, 6, 7, 8, 9, 10  …  1, 12, 23, 34, 45, 56, 67, 78, 89, 100], [1, 2, 3, 4, 5, 6,…
+  [3, 2, 2] =&gt; sparse([1, 2, 3, 4, 5, 6, 7, 1, 8, 9  …  34, 14, 28, 35, 1, 8, 15, 22, 29, 36], [1, 2, 3, 4, 5, 6, 7,…
+  [3, 3, 1] =&gt; sparse([1, 2, 3, 11, 1, 12, 13, 2, 14, 3  …  77, 88, 99, 1, 12, 34, 56, 67, 89, 100], [1, 2, 3, 11, 1…
+  [3, 3, 0] =&gt; sparse([1, 1, 12, 1, 12, 23, 1, 12, 23, 34  …  1, 12, 23, 34, 45, 56, 67, 78, 89, 100], [1, 12, 12, 2…
+  [3, 3, 2] =&gt; sparse([1, 2, 3, 4, 5, 6, 11, 1, 12, 13  …  1, 12, 23, 34, 45, 56, 67, 78, 89, 100], [1, 2, 3, 4, 5, …
+  [3, 0, 0] =&gt; sparse([1], [1], [1.0], 1, 1)</code></pre><p>and the following file is created:</p><ul><li>projectors/P-m3-n3</li></ul><h2 id="Usage-of-the-projectors"><a class="docs-heading-anchor" href="#Usage-of-the-projectors">Usage of the projectors</a><a id="Usage-of-the-projectors-1"></a><a class="docs-heading-anchor-permalink" href="#Usage-of-the-projectors" title="Permalink"></a></h2><p>The projectors are stored in Sparse (CSC) format. As they are symmetric, only the upper triangular part is stored:</p><pre><code class="language-julia-repl hljs">julia&gt; Π = projection_matrices(2,2)
+julia&gt; Π[[2,2,2]]
+9×9 SparseMatrixCSC{Float32, Int64} with 14 stored entries:
+ 0.166667   ⋅    ⋅    ⋅   -0.333333    ⋅    ⋅     ⋅    0.166667
+  ⋅        0.5   ⋅    ⋅     ⋅        -0.5   ⋅     ⋅     ⋅ 
+  ⋅         ⋅   1.0   ⋅     ⋅          ⋅    ⋅     ⋅     ⋅ 
+  ⋅         ⋅    ⋅   0.5    ⋅          ⋅    ⋅   -0.5    ⋅ 
+  ⋅         ⋅    ⋅    ⋅    0.666667    ⋅    ⋅     ⋅   -0.333333
+  ⋅         ⋅    ⋅    ⋅     ⋅         0.5   ⋅     ⋅     ⋅ 
+  ⋅         ⋅    ⋅    ⋅     ⋅          ⋅   1.0    ⋅     ⋅ 
+  ⋅         ⋅    ⋅    ⋅     ⋅          ⋅    ⋅    0.5    ⋅ 
+  ⋅         ⋅    ⋅    ⋅     ⋅          ⋅    ⋅     ⋅    0.166667</code></pre><p>We provide a helper function <code>sparse_sym_mvp(A, x)</code> that performs the matrix-vector multiplication <span>$Ax$</span> by keeping <span>$A$</span> in sparse and upper-triangular format.</p></article><nav class="docs-footer"><a class="docs-footer-nextpage" href="../shadows/">Classical shadows »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.15.0 on <span class="colophon-date" title="Friday 24 October 2025 14:09">Friday 24 October 2025</span>. Using Julia version 1.12.1.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>

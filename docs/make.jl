@@ -8,7 +8,7 @@ makedocs(
 	sitename = "LOShadows.jl",
 	remotes = nothing,
 	modules = [LOShadows],
-	source = "src",
+	source = "./src/",
 	authors = "Hugo Thomas",
 	format = Documenter.HTML(prettyurls=false, sidebar_sitename=false),
 	pages = [

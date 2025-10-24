@@ -4,11 +4,14 @@ using Documenter, LOShadows, SparseArrays
 
 push!(LOAD_PATH, "../src/")
 
+DocMeta.setdocmeta!(BosonSampling, :DocTestSetup, :(using MyPackage); recursive=true)
+
 makedocs(
 	sitename = "LOShadows.jl",
 	remotes = nothing,
 	modules = [LOShadows],
-	format = Documenter.HTML(prettyurls = true),
+	authors := "Hugo Thomas",
+	format = Documenter.HTML(prettyurls=false, sidebar_sitename=false),
 	pages = [
 		"Usage" => [
 			"usage/projectors.md",
@@ -34,4 +37,7 @@ makedocs(
 
 deploydocs(
 	repo = "github.com/thmhugo/LOShadows.jl.git",
+	target = "build",
+    branch = "gh-pages",
+	versions = ["stable" => "v^", "v#.#"],
 )

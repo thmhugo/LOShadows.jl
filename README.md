@@ -10,7 +10,7 @@ states](https://arxiv.org/abs/2510.07240).
 
 Please cite this work if you use it.
 
-    @misc{thomas_shedding_2025b,
+    @misc{thomas_shedding_2025,
     title = {Shedding Light on Classical Shadows: Learning Photonic Quantum States},
     shorttitle = {Shedding Light on Classical Shadows},
     author = {Thomas, Hugo and Chabaud, Ulysse and Emeriau, Pierre-Emmanuel},

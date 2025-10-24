@@ -1,3 +1,5 @@
 app.jl
 docs/build
 .vscode
+examples/Perceval/__pycache__
+examples/Perceval/projectors

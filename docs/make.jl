@@ -4,8 +4,6 @@ using Documenter, LOShadows, SparseArrays
 
 push!(LOAD_PATH, "../src/")
 
-DocMeta.setdocmeta!(BosonSampling, :DocTestSetup, :(using MyPackage); recursive=true)
-
 makedocs(
 	sitename = "LOShadows.jl",
 	remotes = nothing,

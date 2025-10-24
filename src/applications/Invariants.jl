@@ -1,7 +1,11 @@
+"""
+    linear_invariant(ρ::DensityMatrixBlock)
+
+Computes the linear optical Lie-algebraic invariant ``I_2`` (Eq.(14) of [this
+reference](https://arxiv.org/pdf/2409.12223)).
+"""
 function linear_invariant(ρ::DensityMatrixBlock)
-	"""
-	Computes the LO invariant of EQ.4 of https://arxiv.org/pdf/2409.12223
-	"""
+
 	m = ρ.m
 	n = ρ.n
 	return [
@@ -25,12 +29,24 @@ function covariance_matrix(ρ::DensityMatrixBlock)
 	return [tr(oi * ρ) * tr(oj * ρ) - tr((oi * oj + oj * oi) * ρ * 1 / 2) for oj in O, oi in O]
 end
 
-function nonlinear_invariant(ρ::DensityMatrixBlock)
+
+"""
+    covariance_invariant(ρ::DensityMatrixBlock)
+
+Computes the covariance invariant (Eq.(9) of [this
+reference](https://arxiv.org/pdf/2409.12223)).
+"""
+function covariance_invariant(ρ::DensityMatrixBlock)
 	return eigvals(covariance_matrix(ρ))
 end
 
+"""
+	tangent_invariant(ρ::DensityMatrixBlock)
 
-function projection_invariant(ρ::DensityMatrixBlock)
+Computes the tangent invariant (Eq.(20) of [this
+reference](https://arxiv.org/pdf/2409.12223)).
+"""
+function tangent_invariant(ρ::DensityMatrixBlock)
 	m = ρ.m
 	n = ρ.n
 

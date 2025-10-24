@@ -36,6 +36,9 @@ function sparse_sym_mvp(A::SparseMatrixCSC{Float64, Int64}, x::Vector{<:Number})
 	return A * x + transpose(transpose(x) * A) - Diagonal(A) * x
 end
 
+"""
+	sparse_sym_mvp(A::SparseMatrixCSC{Float64, Int64}, x::DensityVectorBlock)
+"""
 function sparse_sym_mvp(A::SparseMatrixCSC{Float64, Int64}, ρ::DensityVectorBlock)
     return sparse_sym_mvp(A, ρ.ρ) 
 end

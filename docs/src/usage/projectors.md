@@ -1,4 +1,4 @@
-# Computing projectors onto irreps of $\phi$
+# Computing projectors onto irreps of $\omega_m^n$
 
 ## Compute projectors
 

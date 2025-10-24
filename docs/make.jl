@@ -8,20 +8,23 @@ makedocs(
 	modules = [LOShadows],
 	format = Documenter.HTML(prettyurls = true),
 	pages = [
-		"About" => "about.md",
 		"Usage" => [
 			"usage/projectors.md",
 			"usage/shadows.md"
 		],
 		"API" => [
-			"types" => [
-				"types/DensityMatrix.md"
-			],
 			"functions" => [
 				"functions/Channels.md",
 				"functions/FockOperators.md",
 				"functions/MatrixOperations.md",
-			]
+			],
+			"applications" => [
+				"applications/Binning.md",
+				"applications/Invariants.md"
+			],
+			"types" => [
+				"types/DensityMatrix.md"
+			],
 		],
 	],
 )

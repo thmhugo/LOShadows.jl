@@ -18,11 +18,12 @@ function omega(n, K)
     return Iterators.product([Ω for _ in 1:K]...) 
 end
 
-# """
-#     binned_probability(k::Int, bins::Vector{Vector{Int}}, ρ::DensityMatrixBlock)
+"""
+    binned_probability(k::Vector{Int}, bins::Vector{Vector{Int}}, ρ::DensityMatrixBlock)
 
-# Compute the probability of observing the occupation `k` in when the output bins are `bins`
-# """
+Compute the probability of observing the occupation `k` ``=[k_1, \\cdots,
+k_{\\#\\text{bins}}]`` when the output bins are given by `bins`.
+"""
 function binned_probability(k::Vector{Int}, bins::Vector{Vector{Int}}, ρ::DensityMatrixBlock)
     K = length(k)
     NK = N(bins, ρ.m, ρ.n) 

@@ -175,8 +175,8 @@ end
 
 function matricise_subblock(lin_ρ, m, n)
 	"""
-	Inverse of linearise, i.e. takes a linearised vector back to its matrix from
-	Here the vector is the linearisation of the whole dm with exactly n photons
+	Inverse of linearise, i.e., takes a linearised vector back to its matrix
+	from.
 	"""
 	d = binomial(m + n - 1, n)
 	ρ = zeros(ComplexF64, (d, d))
@@ -193,6 +193,12 @@ function matricise_subblock(lin_ρ, m, n)
 	return DensityMatrixBlock(m, n, ρ)
 end
 
+"""
+    apply_channel(ρ::DensityMatrix, Π)
+
+Apply the channel Π to ``\\rho``, i.e., returns ``M(\\rho)`` where Π is the
+matrix form of the channel ``M``.
+"""
 function apply_channel(ρ::DensityMatrix, Π)
 	blocks_of_ρ = extract_blocks(ρ)
 
@@ -206,6 +212,12 @@ function apply_channel(ρ::DensityMatrix, Π)
 	return DensityMatrix(ρ.m, ρ.n, ρ_depolarised)
 end
 
+"""
+    apply_nth_channel(ρ::DensityMatrix, Π)
+
+Apply the channel Π to the ``n``-photon sector ``\\rho^{(n)}``,i.e., returns
+``M^{(n)}(\\rho^{(n)})`` where Π is the matrix form of the channel ``M``.
+"""
 function apply_nth_channel(ρ::DensityMatrixBlock, Π)
 	m = ρ.m
 	n = ρ.n

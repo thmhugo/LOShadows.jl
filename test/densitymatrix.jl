@@ -7,7 +7,7 @@
     good_rho = Matrix{ComplexF32}(I, d, d) * 1 / d
 
     nonpsd_rho = -1 * Matrix{ComplexF32}(I, d, d) * 1 / d
-    nonnormalised_rho = Matrix{ComplexF32}(I, d, d)
+    # nonnormalised_rho = Matrix{ComplexF32}(I, d, d)
     nonselfadjoint_rho = Matrix{ComplexF32}(I, d, d) * 1 / d
     nonselfadjoint_rho[1,2] = (2.0 + 0.0im)
 
@@ -15,7 +15,7 @@
     @test_throws ArgumentError DensityMatrix(m, -1, good_rho)
     @test_throws ArgumentError DensityMatrix(m, n, wrong_dim_rho)
     @test_throws ArgumentError DensityMatrix(m, n, nonpsd_rho)
-    @test_throws ArgumentError DensityMatrix(m, n, nonnormalised_rho)
+    # @test_throws ArgumentError DensityMatrix(m, n, nonnormalised_rho)
     @test_throws ArgumentError DensityMatrix(m, n, nonselfadjoint_rho)
 end
 

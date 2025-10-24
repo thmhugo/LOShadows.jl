@@ -1,3 +1,5 @@
+import Pkg
+Pkg.add("Documenter")
 using Documenter, LOShadows, SparseArrays
 
 push!(LOAD_PATH, "../src/")

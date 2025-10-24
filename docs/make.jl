@@ -8,12 +8,14 @@ makedocs(
 	sitename = "LOShadows.jl",
 	remotes = nothing,
 	modules = [LOShadows],
+	source = "src",
 	authors = "Hugo Thomas",
 	format = Documenter.HTML(prettyurls=false, sidebar_sitename=false),
 	pages = [
+		"About" => "index.md",
 		"Usage" => [
-			"usage/projectors.md",
-			"usage/shadows.md"
+			"usage/shadows.md",
+			"usage/projectors.md"
 		],
 		"API" => [
 			"functions" => [
